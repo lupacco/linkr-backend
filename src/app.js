@@ -1,19 +1,21 @@
-import express from "express"
-import cors from "cors"
-import dotenv from "dotenv"
-dotenv.config()
+import express from "express";
+import cors from "cors";
+import dotenv from "dotenv";
+dotenv.config();
 //Routes
 import authRouter from "./routes/auth.routes.js";
 import usersRouter from "./routes/users.routes.js";
-
+import homeRouter from "./routes/home.routes.js";
 
 const server = express();
 
-server.use(cors())
-server.use(express.json())
-server.use([authRouter, usersRouter])
+server.use(cors());
+server.use(express.json());
+server.use([authRouter, usersRouter, homeRouter]);
 
-server.listen(process.env.PORT, () => console.log(`Running on PORT: ${process.env.PORT}`))
+server.listen(process.env.PORT, () =>
+  console.log(`Running on PORT: ${process.env.PORT}`)
+);
 
 // 200: Ok => Significa que deu tudo certo com a requisição
 // 201: Created => Sucesso na criação do recurso
