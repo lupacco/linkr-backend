@@ -1,6 +1,7 @@
 import express from "express"
 import cors from "cors"
 import dotenv from "dotenv"
+import userRoutes from "./routes/usersRoutes.js";
 dotenv.config()
 
 //Routes
@@ -10,9 +11,12 @@ const server = express();
 
 server.use(cors())
 server.use(express.json())
+server.use(userRoutes);
+
 // server.use([])
 
 server.listen(process.env.PORT, () => console.log(`Running on PORT: ${process.env.PORT}`))
+
 
 // 200: Ok => Significa que deu tudo certo com a requisição
 // 201: Created => Sucesso na criação do recurso
