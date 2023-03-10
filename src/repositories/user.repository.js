@@ -19,12 +19,11 @@ export async function getUserById(id){
 }
 
 export async function createUser(username, email, password, pictureUrl) {
-  const result = db.query(
+  await db.query(
     `INSERT INTO users (username, email, password, picture_url) VALUES ($1,$2,$3, $4)`,
     [username, email, password, pictureUrl]
   );
 
-  return result;
 }
 
 export async function generateSession(userId, token) {

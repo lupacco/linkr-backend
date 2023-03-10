@@ -10,7 +10,6 @@ export async function checkEmailExistence(req, res, next){
         
         //In case user already exist
         if(user) return res.sendStatus(409)
-        console.log(user)
 
         next()
     }catch(err){
