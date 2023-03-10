@@ -1,9 +1,9 @@
-import Joi from "@hapi/joi";
+import joi from "@hapi/joi";
 
-const regexUrl = /^https?:\/\/.*/
+const regexUrl = /^https?:\/\/.*/;
 
-export const postSchema = Joi.object({
-    description: Joi.string(),
-    url: Joi.string().regex(regexUrl).required(),
-    hashtags: Joi.array()
-})
+export const postSchema = joi.object({
+  description: joi.string().required(),
+  url: joi.string().regex(regexUrl).required(),
+  hashtags: joi.array()
+});

@@ -13,9 +13,12 @@ export async function getPosts(req, res){
 }
 
 export async function createPost(req, res){
-    
+    const {description, url, hashtags} = req.body
     try {
-        await insertPost()
+        console.log(hashtags)
+        await insertPost(description, url)
+
+        return res.sendStatus(201)
     } catch (err) {
         console.log(err)
         return res.sendStatus(500)
