@@ -1,6 +1,6 @@
 import bcrypt from "bcrypt";
 import { v4 as uuid } from "uuid";
-import { createUser, generateSession } from "../repositories/users.repository.js";
+import { createUser, generateSession } from "../repositories/user.repository.js";
 
 export async function signIn(req, res) {
   const user = req.user;

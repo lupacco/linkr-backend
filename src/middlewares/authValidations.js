@@ -1,5 +1,4 @@
-import { db } from "../config/database.connection.js";
-import { getUserByEmail } from "../repositories/users.repository.js";
+import { getUserByEmail } from "../repositories/user.repository.js";
 import bcrypt from "bcrypt"
 
 export async function checkEmailExistence(req, res, next){

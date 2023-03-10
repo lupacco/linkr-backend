@@ -6,6 +6,12 @@ export async function getUserByEmail(email) {
   return result;
 }
 
+export async function getUserById(id){
+  const result = await db.query(`SELECT * FROM users WHERE id=$1`, [id]);
+
+  return result;
+}
+
 export async function createUser(username, email, password, pictureUrl) {
   const result = db.query(
     `INSERT INTO users (username, email, password, picture_url) VALUES ($1,$2,$3, $4)`,
