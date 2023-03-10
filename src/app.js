@@ -2,15 +2,15 @@ import express from "express"
 import cors from "cors"
 import dotenv from "dotenv"
 dotenv.config()
-
 //Routes
+import authRouter from "./routes/auth.routes.js";
 
 
 const server = express();
 
 server.use(cors())
 server.use(express.json())
-// server.use([])
+server.use(authRouter)
 
 server.listen(process.env.PORT, () => console.log(`Running on PORT: ${process.env.PORT}`))
 
