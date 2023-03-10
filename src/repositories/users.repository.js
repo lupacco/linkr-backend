@@ -14,3 +14,12 @@ export async function createUser(username, email, password, pictureUrl) {
 
   return result;
 }
+
+export async function generateSession(userId, token) {
+  const result = db.query(
+    `INSERT INTO sessions (user_id, token) VALUES ($1,$2)`,
+    [userId, token]
+  );
+
+  return result;
+}

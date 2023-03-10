@@ -1,11 +1,14 @@
 import bcrypt from "bcrypt";
 import { v4 as uuid } from "uuid";
-import { createUser } from "../repositories/users.repository.js";
+import { createUser, generateSession } from "../repositories/users.repository.js";
 
 export async function signIn(req, res) {
   const user = req.user;
   const token = uuid();
   try {
+    const session = await generateSession(user.id, token)
+
+    return res.status(200).send(token)
   } catch (err) {
     console.log(err);
     return res.sendStatus(500);
