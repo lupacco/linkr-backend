@@ -4,8 +4,6 @@ export async function validateToken(req, res, next){
     const {authorization} = req.headers
     
     try {
-        console.log('aqui')
-        console.log(req.body)
         const session = await getSessionByToken(authorization)
         
         if(!session.rows[0]) return res.sendStatus(401)

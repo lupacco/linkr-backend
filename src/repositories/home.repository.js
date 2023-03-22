@@ -11,5 +11,7 @@ export async function getRecentPosts() {
 }
 
 export async function insertPost(description, url){
-    await db.query(`INSERT INTO posts (description, url) VALUES ($1, $2)`, [description, url])
+    const result = await db.query(`INSERT INTO posts (description, url) VALUES ($1, $2)`, [description, url])
+
+    return result
 }
