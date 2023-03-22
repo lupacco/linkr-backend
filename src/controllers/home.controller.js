@@ -15,8 +15,14 @@ export async function getPosts(req, res){
 export async function createPost(req, res){
     const {description, url, hashtags} = req.body
     try {
-        console.log(hashtags)
-        await insertPost(description, url)
+        const response = await insertPost(description, url)
+        if(hashtags.length > 0){
+            console.log("existe item")
+            console.log(response)
+        }
+        else{
+            console.log("vazio")
+        }
 
         return res.sendStatus(201)
     } catch (err) {

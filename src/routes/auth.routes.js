@@ -10,6 +10,6 @@ import { checkEmailExistence, validateLogin } from "../middlewares/authValidatio
 const authRouter = Router();
 
 authRouter.post("/", validateSchema(signInSchema), validateLogin, signIn);
-authRouter.post("/signup", validateSchema(singUpSchema), checkEmailExistence, signUp);
+authRouter.post("/signup",validateSchema(singUpSchema), checkEmailExistence, signUp);
 
 export default authRouter
