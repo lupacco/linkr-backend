@@ -6,7 +6,7 @@ export const singUpSchema = joi.object({
   username: joi.string().min(1).required(),
   email: joi.string().email().required(),
   password: joi.string().required(),
-  pictureUrl: joi.string().regex(regexUrl),
+  pictureUrl: joi.string().regex(regexUrl).allow(""),
 });
 
 export const signInSchema = joi.object({

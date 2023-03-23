@@ -16,9 +16,8 @@ export async function createPost(req, res){
     const {description, url, hashtags} = req.body
     try {
         const response = await insertPost(description, url)
-        if(hashtags.length > 0){
+        if(hashtags && hashtags.length > 0){
             console.log("existe item")
-            console.log(response)
         }
         else{
             console.log("vazio")
