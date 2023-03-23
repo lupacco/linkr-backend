@@ -8,7 +8,9 @@ export async function signIn(req, res) {
   try {
     const session = await generateSession(user.id, token)
 
-    return res.status(200).send(token)
+    if(!user.pictureUrl) delete user.pictureUrl
+
+    return res.status(200).send({...user, token})
   } catch (err) {
     console.log(err);
     return res.sendStatus(500);

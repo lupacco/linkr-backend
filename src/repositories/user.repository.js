@@ -1,19 +1,19 @@
 import { db } from "../config/database.connection.js";
 
 export async function getUserByUsername(username){
-  const result = await db.query(`SELECT * FROM users WHERE username ILIKE '${username}%'`)
+  const result = await db.query(`SELECT id, username, email, picture_url AS "pictureUrl" FROM users WHERE username ILIKE '${username}%'`)
 
   return result
 }
 
 export async function getUserByEmail(email) {
-  const result = await db.query(`SELECT * FROM users WHERE email=$1`, [email]);
+  const result = await db.query(`SELECT id, username, email, picture_url AS "pictureUrl", password FROM users WHERE email=$1`, [email]);
 
   return result;
 }
 
 export async function getUserById(id){
-  const result = await db.query(`SELECT * FROM users WHERE id=$1`, [id]);
+  const result = await db.query(`SELECT id, username, email, picture_url AS "pictureUrl" FROM users WHERE id=$1`, [id]);
 
   return result;
 }
