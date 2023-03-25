@@ -10,8 +10,8 @@ export async function getRecentPosts() {
   return result
 }
 
-export async function insertPost(description, url){
-    const result = await db.query(`INSERT INTO posts (description, url) VALUES ($1, $2)`, [description, url])
+export async function insertPost(description, url, userId){
+    const result = await db.query(`INSERT INTO posts (description, url, user_id) VALUES ($1, $2, $3)`, [description, url, userId])
 
     return result
 }

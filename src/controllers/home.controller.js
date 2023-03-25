@@ -13,11 +13,11 @@ export async function getPosts(req, res){
 }
 
 export async function createPost(req, res){
-    const {description, url, hashtags} = req.body
+    const {description, url, hashtags, userId} = req.body
     try {
-        const response = await insertPost(description, url)
+        const response = await insertPost(description, url, userId)
         if(hashtags && hashtags.length > 0){
-            console.log("existe item")
+            console.log(req.body)
         }
         else{
             console.log("vazio")
